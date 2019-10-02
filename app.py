@@ -1,5 +1,9 @@
+import os
+
 from flask import Flask
 app = Flask(__name__)
+base_path = os.path.dirname(os.path.abspath(__file__))
+openssl_path = os.path.join(base_path, '..', 'openssl')
 
 
 @app.route("/")
@@ -8,4 +12,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run(ssl_context=('cert.pem', 'key.pem'))
+    app.run(ssl_context=(os.path.join(openssl_path, 'cert.pem'), os.path.join(openssl_path, 'key.pem')))
