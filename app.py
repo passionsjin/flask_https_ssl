@@ -12,4 +12,4 @@ def hello():
 
 
 if __name__ == "__main__":
-    app.run(ssl_context=(os.path.join(openssl_path, 'cert.pem'), os.path.join(openssl_path, 'key.pem')))
+    app.run(host='0.0.0.0', ssl_context=(os.path.join(openssl_path, 'cert.pem'), os.path.join(openssl_path, 'key.pem')))
